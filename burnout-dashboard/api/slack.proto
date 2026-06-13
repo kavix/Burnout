@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package slack;
+
+option go_package = "github.com/burnout-dashboard/pkg/grpc/slack";
+
+service SlackService {
+  rpc GetActivity (GetActivityRequest) returns (GetActivityResponse);
+}
+
+message GetActivityRequest {
+  string user_id = 1;
+}
+
+message GetActivityResponse {
+  int32 message_count = 1;
+  int32 reaction_count = 2;
+}
