@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package scoring;
+
+option go_package = "github.com/burnout-dashboard/pkg/grpc/scoring";
+
+service ScoringService {
+  rpc CalculateScore (CalculateScoreRequest) returns (CalculateScoreResponse);
+}
+
+message CalculateScoreRequest {
+  string user_id = 1;
+}
+
+message CalculateScoreResponse {
+  float score = 1;
+  string risk_level = 2;
+}
