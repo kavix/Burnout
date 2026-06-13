@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package github;
+
+option go_package = "github.com/burnout-dashboard/pkg/grpc/github";
+
+service GithubService {
+  rpc GetStats (GetStatsRequest) returns (GetStatsResponse);
+}
+
+message GetStatsRequest {
+  string user_id = 1;
+}
+
+message GetStatsResponse {
+  int32 commits = 1;
+  int32 pull_requests = 2;
+  int32 issues = 3;
+}
